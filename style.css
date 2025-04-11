@@ -1,7 +1,8 @@
 :root {
     --videoMargin: 2.5%;
     --videoWidth: 95%;
-
+    --playButtonBackground: rgba(255, 255, 255, 0.2);
+    --playButtonBackdropFilter: blur(10px);
 }
 
 #videoOverlay {
@@ -11,6 +12,9 @@
     margin-right: var(--videoMargin);
     margin-top: 0px;
     margin-bottom: 0px;
+    position: relative;
+    display: block;
+    margin: 0 auto;
 }
 
 #playButton {
@@ -18,8 +22,6 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 25%;
-    height: 25%;
     background-color: rgba(255, 255, 255, 0.8);
     border-radius: 50%;
     display: flex;
@@ -27,4 +29,15 @@
     align-items: center;
     cursor: pointer;
     z-index: 10;
+    transition: background-color 0.3s ease;
+    pointer-events: none;
+    width: 25%; /* Increased size */
+    height: auto; /* Maintain aspect ratio */
+    backdrop-filter: var(--playButtonBackdropFilter); /* Glassmorphism effect */
+    background-color: var(--playButtonBackground); /* Semi-transparent background */
+}
+
+.video-container {
+    position: relative;
+    display: inline-block;
 }
